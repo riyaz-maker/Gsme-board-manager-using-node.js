@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Game</title>
+    <title>Add Game Session</title>
     <link rel="stylesheet" href="/styles.css">
     <style>
         body {
@@ -86,29 +86,25 @@
 </head>
 <body>
     <div class="form-container">
-        <h1>Add a New Game</h1>
-        <form action="/games/add" method="POST" enctype="multipart/form-data" class="game-form">
+        <h1>Add Session for "<%= game.Name %>"</h1>
+        <form action="/sessions/add/<%= game.GameID %>" method="POST" class="game-form">
             <div class="form-group">
-                <label for="name">Game Name</label>
-                <input type="text" id="name" name="name" class="form-control" placeholder="Enter the game name" required>
+                <label for="sessionDate">Session Date</label>
+                <input type="date" id="sessionDate" name="sessionDate" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="description">Description</label>
-                <textarea id="description" name="description" class="form-control" placeholder="Enter a description" required></textarea>
+                <label for="startTime">Start Time</label>
+                <input type="time" id="startTime" name="startTime" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="minPlayers">Minimum Players</label>
-                <input type="number" id="minPlayers" name="minPlayers" class="form-control" min="1" placeholder="Enter minimum players" required>
+                <label for="endTime">End Time</label>
+                <input type="time" id="endTime" name="endTime" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="maxPlayers">Maximum Players</label>
-                <input type="number" id="maxPlayers" name="maxPlayers" class="form-control" min="1" placeholder="Enter maximum players" required>
+                <label for="notes">Session Notes</label>
+                <textarea id="notes" name="notes" class="form-control" placeholder="Enter any notes for the session"></textarea>
             </div>
-            <div class="form-group">
-                <label for="image">Game Image</label>
-                <input type="file" id="image" name="image" class="form-control-file" accept="image/*">
-            </div>
-            <button type="submit" class="form-submit">Add Game</button>
+            <button type="submit" class="form-submit">Add Session</button>
         </form>
         <a href="/" class="back-link">Back to Home</a>
     </div>

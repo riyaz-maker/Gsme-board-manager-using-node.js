@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board Game Directory</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body {
+            background-image: url('/images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #000;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: #ff5722;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Game Tiles Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .tile {
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .tile img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            object-fit: cover;
+            max-height: 200px;
+        }
+
+        .actions {
+            margin-top: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #ff5722;
+            color: #fff;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="/games/add" class="nav-item">Add Game</a>
+        <a href="/sessions/add" class="nav-item">Add Session</a> 
+        <a href="/analytics" class="nav-item">Analytics</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Board Game Directory</h1>
+        <div class="grid">
+            <% games.forEach(game => { %>
+                <div class="tile">
+                    <img src="<%= game.ImagePath %>" alt="<%= game.Name %>" class="game-image">
+                    <h2><%= game.Name %></h2>
+                    <p><%= game.Description %></p>
+                    <p>Players: <%= game.MinPlayers %> - <%= game.MaxPlayers %></p>
+                    <p>Last Played: <%= game.LastPlayed === 'Never' ? 'Never' : new Date(game.LastPlayed).toLocaleDateString() %></p>
+                    <div class="actions">
+                        <a href="/games/edit/<%= game.GameID %>" class="button">Edit Game</a>
+                        <a href="/sessions/add/<%= game.GameID %>" class="button">Add Session</a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Analytics</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body {
+            background-image: url('/images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .summary {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .summary-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            flex: 1;
+            margin: 5px;
+        }
+
+        .export-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .export-button {
+            display: inline-block;
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .export-button:hover {
+            background-color: #45a049;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #ff5722;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Session Analytics</h1>
+
+        <!-- Summary Section -->
+        <div class="summary">
+            <div class="summary-item">
+                <h2>Total Sessions</h2>
+                <p><%= analytics.TotalSessions %></p>
+            </div>
+            <div class="summary-item">
+                <h2>Total Games</h2>
+                <p><%= analytics.TotalGames %></p>
+            </div>
+            <div class="summary-item">
+                <h2>Most Played Game</h2>
+                <p><%= analytics.MostPlayedGame || 'N/A' %></p>
+            </div>
+            <div class="summary-item">
+                <h2>Total Hours Played</h2>
+                <p><%= (analytics.TotalMinutes / 60).toFixed(2) %> hours</p>
+            </div>
+        </div>
+
+        <!-- Export CSV Section -->
+        <div class="export-container">
+            <h2>Export Analytics</h2>
+            <a href="/export/csv" class="export-button">Download Analytics as CSV</a>
+        </div>
+
+        <!-- Back to Home Link -->
+        <a href="/" class="back-link">Back to Home</a>
+    </div>
+</body>
+</html>

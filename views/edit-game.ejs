@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Game</title>
+    <title>Edit Game</title>
     <link rel="stylesheet" href="/styles.css">
     <style>
         body {
@@ -82,33 +82,44 @@
         .back-link:hover {
             text-decoration: underline;
         }
+
+        .current-image {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="form-container">
-        <h1>Add a New Game</h1>
-        <form action="/games/add" method="POST" enctype="multipart/form-data" class="game-form">
+        <h1>Edit Game</h1>
+        <form action="/games/edit/<%= game.GameID %>" method="POST" enctype="multipart/form-data" class="game-form">
             <div class="form-group">
                 <label for="name">Game Name</label>
-                <input type="text" id="name" name="name" class="form-control" placeholder="Enter the game name" required>
+                <input type="text" id="name" name="name" class="form-control" value="<%= game.Name %>" placeholder="Enter the game name" required>
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description" name="description" class="form-control" placeholder="Enter a description" required></textarea>
+                <textarea id="description" name="description" class="form-control" placeholder="Enter a description" required><%= game.Description %></textarea>
             </div>
             <div class="form-group">
                 <label for="minPlayers">Minimum Players</label>
-                <input type="number" id="minPlayers" name="minPlayers" class="form-control" min="1" placeholder="Enter minimum players" required>
+                <input type="number" id="minPlayers" name="minPlayers" class="form-control" value="<%= game.MinPlayers %>" min="1" placeholder="Enter minimum players" required>
             </div>
             <div class="form-group">
                 <label for="maxPlayers">Maximum Players</label>
-                <input type="number" id="maxPlayers" name="maxPlayers" class="form-control" min="1" placeholder="Enter maximum players" required>
+                <input type="number" id="maxPlayers" name="maxPlayers" class="form-control" value="<%= game.MaxPlayers %>" min="1" placeholder="Enter maximum players" required>
             </div>
             <div class="form-group">
                 <label for="image">Game Image</label>
                 <input type="file" id="image" name="image" class="form-control-file" accept="image/*">
+                <p>Current Image:</p>
+                <img src="<%= game.ImagePath %>" alt="Current Game Image" class="current-image">
+                <input type="hidden" name="existingImagePath" value="<%= game.ImagePath %>">
             </div>
-            <button type="submit" class="form-submit">Add Game</button>
+            <button type="submit" class="form-submit">Update Game</button>
         </form>
         <a href="/" class="back-link">Back to Home</a>
     </div>
