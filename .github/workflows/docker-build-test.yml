@@ -17,22 +17,28 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Docker
+      # Step 2: Set up Docker Buildx
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      # Step 3: Build and Start Services
+      # Step 3: Install Docker Compose
+      - name: Install Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
+
+      # Step 4: Build and Start Services
       - name: Build and Start Services
         run: |
           docker-compose up --build -d
 
-      # Step 4: Run Tests
+      # Step 5: Run Tests
       - name: Run Tests
         run: |
           docker-compose up test
-          docker logs board-game-test
+          docker-compose logs test
 
-      # Step 5: Stop Services
+      # Step 6: Stop Services
       - name: Stop Services
         run: |
           docker-compose down
