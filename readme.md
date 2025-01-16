@@ -41,5 +41,16 @@ Screenshots
 
 [Analytics]![analytics page](https://github.com/user-attachments/assets/28bdfcaa-af3d-49e1-9fb2-137afa27faaf)
 
-[CSV Data]
-![csvdata](https://github.com/user-attachments/assets/0c128df3-b5f7-4b35-a20a-232e2b9d25b7)
+[CSV Data]![csvdata](https://github.com/user-attachments/assets/0c128df3-b5f7-4b35-a20a-232e2b9d25b7)
+
+Cloning the Repository
+=====
+
+* Run the following command to clone the repository: git clone https://github.com/riyaz-maker/mie-dev-challenge.git
+* Make sure you have the following installed on your system:
+Docker: Install Docker
+* Create the .env file. Open the .env.example file in a text editor and fill in the necessary values.
+* Run the following command to build and start all services: docker-compose up --build
+* Open the app in your browser: http://localhost:3000
+* To run the test service defined in docker-compose.yml: docker-compose up test
+* To stop the services and remove containers: docker-compose down
