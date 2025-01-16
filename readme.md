@@ -18,7 +18,7 @@ Additional Features
 =====
 
 * Export the analytics data as a CSV file
-* Automated testing with Jest and Supertest
+* Automated testing with Jest
 * Fully containarized using Docker Compose
 
 Demonstration Video
