@@ -2,11 +2,11 @@ Board Game Directory
 =====
 
 The Board Game Directory is a web application designed to help friends track board games, their details, and play sessions as part of the MIE coding challenge. I've used the technologies:
-•	Node.js for backend
-•	EJS Templating
-•	MariaDB to setup the database
-•	Docker for deployment
-•	GitHub actions for automated CI/CD workflow
+*	Node.js for backend
+*	EJS Templating
+*	MariaDB to setup the database
+*	Docker for deployment
+*	GitHub actions for automated CI/CD workflow
 
 Basic Features
 =====
@@ -54,3 +54,11 @@ Docker: Install Docker
 * Open the app in your browser: http://localhost:3000
 * To run the test service defined in docker-compose.yml: docker-compose up test
 * To stop the services and remove containers: docker-compose down
+
+Accessing GitHub Workflow
+=====
+
+* In the Actions tab, you’ll see a list of workflows. Click on the workflow "Build and Test Dockerized App".
+* You will see a list of recent runs, triggered by:
+Push: When changes are pushed to a specific branch.
+Pull Request: When a pull request is created or updated.
