@@ -5,7 +5,7 @@ const { Parser } = require('json2csv');
 const router = express.Router();
 
 // Route to export analytics data as CSV
-router.get('/export/csv', (req, res) => {
+router.get('/csv', (req, res) => {
     const query = `
         SELECT 
             BoardGames.Name AS GameName, 
