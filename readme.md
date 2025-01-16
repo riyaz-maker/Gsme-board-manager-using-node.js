@@ -26,3 +26,19 @@ Demonstration Video
 
 The solution and a demo of this project has been uploaded on Youtube. You can access the video from this [LINK](https://youtu.be/CrqbiXF24p8).
 
+Screenshots
+=====
+
+[Homepage]![homepage](https://github.com/user-attachments/assets/4a10760c-f1a4-45c7-87cc-1f34dbdff2e8)
+
+[Edit Game]![editgame page](https://github.com/user-attachments/assets/92003b96-acbb-4c56-b9b0-2b2bff4528be)
+
+[Add Game]![addgame page](https://github.com/user-attachments/assets/1ea19961-4dc8-41d0-904e-bee4051bf885)
+
+[Add Session in Game Tile]![addsession page](https://github.com/user-attachments/assets/aeea560a-db84-4c47-91ad-86e0033f23b4)
+
+[Add Session - General]![addsession general](https://github.com/user-attachments/assets/9990dc14-4cdb-4fbf-a711-4ceeb2a5919d)
+
+[Analytics]![analytics page](https://github.com/user-attachments/assets/28bdfcaa-af3d-49e1-9fb2-137afa27faaf)
+
+[CSV Data]![csvdata](https://github.com/user-attachments/assets/0c128df3-b5f7-4b35-a20a-232e2b9d25b7)
